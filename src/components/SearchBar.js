@@ -1,19 +1,27 @@
-import React, { Fragment } from 'react';
+import React, { Component, Fragment } from 'react';
 
-const SearchBar = () => {
+class SearchBar extends Component {
+
+
+
+  // state = {
+  //   searchBar: ""
+  // }
+
+render(){
   return (
     <Fragment>
       <strong>Search for Stocks!</strong>
-      <input type="text" onChange={null}/>
+      <input type="text" value={this.props.searchBar} onChange={this.props.searchStocks}/>
       <br/>
 
       <strong>Sort by:</strong>
       <label>
-        <input type="radio" value="Alphabetically" checked={null} onChange={null}/>
+        <input type="radio" value="Alphabetically" checked={this.props.sortBy === "Alphabetically"} onChange={this.props.alphaCompare}/>
         Alphabetically
       </label>
       <label>
-        <input type="radio" value="Price" checked={null} onChange={null}/>
+        <input type="radio" value="Price" checked={this.props.sortBy === "Price"} onChange={this.props.alphaCompare}/>
         Price
       </label>
       <br/>
@@ -27,9 +35,9 @@ const SearchBar = () => {
         </select>
       </label>
 
-
     </Fragment>
   );
+}
 }
 
 
